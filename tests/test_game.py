@@ -32,3 +32,11 @@ def test_one_spare_game(game):
 def _roll_spare(game):
     game.roll(4)
     game.roll(6)
+
+
+def test_one_strike_game(game):
+    game.roll(10)
+    game.roll(3)
+    game.roll(6)
+    _roll_many(game, pins=0, times=16)
+    assert game.score() == 28
