@@ -23,8 +23,12 @@ def test_all_ones_game(game):
 
 
 def test_one_spare_game(game):
-    game.roll(4)
-    game.roll(6)
+    _roll_spare(game)
     game.roll(3)
     _roll_many(game, pins=0, times=17)
     assert game.score() == 16
+
+
+def _roll_spare(game):
+    game.roll(4)
+    game.roll(6)

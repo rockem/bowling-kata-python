@@ -1,6 +1,7 @@
-class BowlingGame:
-    _score = 0
+NUMBER_OF_FRAMES = 10
 
+
+class BowlingGame:
     def __init__(self):
         self._rolls = []
 
@@ -8,4 +9,16 @@ class BowlingGame:
         self._rolls.append(pins)
 
     def score(self):
-        return sum([roll for roll in self._rolls])
+        score = 0
+        first_in_frame = 0
+        for i in range(NUMBER_OF_FRAMES):
+            if self._is_spare(first_in_frame):
+                score += 10 + self._rolls[first_in_frame + 2]
+                first_in_frame += 2
+            else:
+                score += self._rolls[first_in_frame] + self._rolls[first_in_frame + 1]
+                first_in_frame += 2
+        return score
+
+    def _is_spare(self, first_in_frame):
+        return self._rolls[first_in_frame] + self._rolls[first_in_frame + 1] == 10
