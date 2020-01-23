@@ -3,4 +3,4 @@ class BowlingGame:
         pass
 
     def score(self):
-        pass
+        return 0
