@@ -35,8 +35,12 @@ def _roll_spare(game):
 
 
 def test_one_strike_game(game):
-    game.roll(10)
+    _roll_strike(game)
     game.roll(3)
     game.roll(6)
     _roll_many(game, pins=0, times=16)
     assert game.score() == 28
+
+
+def _roll_strike(game):
+    game.roll(10)
