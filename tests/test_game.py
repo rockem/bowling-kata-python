@@ -1,4 +1,4 @@
 
 
-def test_nothing():
-    pass
+def test_gutter_game():
+    game = BowlingGame()
