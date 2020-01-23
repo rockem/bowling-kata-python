@@ -44,3 +44,11 @@ def test_one_strike_game(game):
 
 def _roll_strike(game):
     game.roll(10)
+
+
+def test_strike_in_last_frame_game(game):
+    _roll_many(game, pins=0, times=18)
+    _roll_strike(game)
+    game.roll(4)
+    game.roll(2)
+    assert game.score() == 16
