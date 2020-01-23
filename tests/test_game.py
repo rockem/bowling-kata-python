@@ -20,3 +20,11 @@ def _roll_many(game, pins, times):
 def test_all_ones_game(game):
     _roll_many(game, pins=1, times=20)
     assert game.score() == 20
+
+
+def test_one_spare_game(game):
+    game.roll(4)
+    game.roll(6)
+    game.roll(3)
+    _roll_many(game, pins=0, times=17)
+    assert game.score() == 16
